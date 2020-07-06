@@ -2,19 +2,18 @@ import React, {Component} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 
 import Logo from '../components/Logo'
-import FormLogin from '../components/FormLogin'
+import FormInitialConfig from "../components/FormInitialConfig";
 
-export default class Login extends Component {
+export default class InitialConfig extends Component {
 	render() {
 		return (
 			<View style={styles.container}>
 				<Logo/>
 
-				<FormLogin/>
+				<FormInitialConfig />
 
-				<View style={styles.signUpContainer}>
-					<Text style={styles.signUpText}>Don't have an account yet?</Text>
-					<Text style={styles.signUpButton}> Sign up</Text>
+				<View style={styles.textContainer}>
+					<Text style={styles.textText}>Welcome to DJD-Framework</Text>
 				</View>
 			</View>
 		);
@@ -29,7 +28,7 @@ const styles = StyleSheet.create({
 		justifyContent: 'center'
 	},
 
-	signUpContainer: {
+	textContainer: {
 		flexGrow: 1,
 		alignItems: 'flex-end',
 		justifyContent: 'center',
@@ -37,14 +36,8 @@ const styles = StyleSheet.create({
 		flexDirection: 'row'
 	},
 
-	signUpText: {
+	textText: {
 		color: 'rgba(255, 255, 255, 0.7)',
 		fontSize: 16
-	},
-
-	signUpButton: {
-		color: "#6abf4b",
-		fontSize: 16,
-		fontWeight: '500'
 	}
 });

@@ -3,6 +3,7 @@ import {StyleSheet, Text, View, StatusBar} from 'react-native';
 
 import Login from './src/pages/Login'
 import SignUp from './src/pages/SignUp'
+import InitialConfig from "./src/pages/InitialConfig";
 
 export default class App extends Component {
 	render() {
@@ -10,7 +11,7 @@ export default class App extends Component {
 			<View style={styles.container}>
 				<StatusBar style="auto"/>
 
-				<SignUp/>
+				<InitialConfig/>
 			</View>
 		);
 	}
