@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-import Image from "react-native-web/dist/exports/Image";
+import {StyleSheet, Text, View, Image, Dimensions} from 'react-native';
+
+const screen = Dimensions.get("screen");
+// const window = Dimensions.get("window");
 
 export default class Logo extends Component {
 	render() {
@@ -25,8 +27,8 @@ const styles = StyleSheet.create({
 	},
 
 	image: {
-		width: 100,
-		height: 100
+		width: screen.width / 2,
+		height: screen.width / 2
 	},
 
 	text: {

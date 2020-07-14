@@ -40,10 +40,10 @@ const styles = StyleSheet.create({
 		borderRadius: 25,
 		marginVertical: 5,
 		paddingHorizontal: 15,
-		underlineColorAndroid: 'rgba(0, 0, 0, 0)',
+		// underlineColorAndroid: 'rgba(0, 0, 0, 0)',
 		fontSize: 16,
 		color: 'rgba(255, 255, 255, 0.7)',
-		placeholderTextColor: 'rgba(255, 255, 255, 0.7)'
+		// placeholderTextColor: 'rgba(255, 255, 255, 0.7)'
 	},
 
 	button: {
