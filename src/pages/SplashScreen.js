@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {StyleSheet, View, ActivityIndicator} from 'react-native';
 
 import Logo from '../components/Logo'
