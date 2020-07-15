@@ -4,7 +4,7 @@ import {StyleSheet, Text, View} from 'react-native';
 import Logo from '../components/Logo'
 import FormInitialConfig from "../components/FormInitialConfig";
 
-export default class InitialConfig extends Component {
+export default class Configuration extends Component {
 	render() {
 		return (
 			<View style={styles.container}>
