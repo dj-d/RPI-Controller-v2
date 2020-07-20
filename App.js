@@ -1,27 +1,31 @@
-import React, {Component} from 'react';
-import {StyleSheet, Text, View, StatusBar} from 'react-native';
+import * as React from 'react';
 
-import Login from './src/pages/Login'
-import SignUp from './src/pages/SignUp'
-import InitialConfig from "./src/pages/InitialConfig";
+import 'react-native-gesture-handler'
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
-export default class App extends Component {
-	render() {
-		return (
-			<View style={styles.container}>
-				<StatusBar style="auto"/>
+import SplashScreen from "./src/screens/SplashScreen";
+import Configuration from "./src/screens/Configuration";
+import Login from "./src/screens/Login";
+import SignUp from "./src/screens/SignUp";
 
-				<InitialConfig/>
-			</View>
-		);
-	}
+const Stack = createStackNavigator();
+
+function App() {
+	return (
+		<NavigationContainer>
+			<Stack.Navigator screenOptions={{
+				headerStyle: {
+					height: 0
+				}
+			}}>
+				<Stack.Screen name="Configuration" component={Configuration} options={{title: ''}}/>
+				<Stack.Screen name="SplashScreen" component={SplashScreen} options={{ title: '' }}/>
+				<Stack.Screen name="Login" component={Login} options={{title: ''}} />
+				<Stack.Screen name="SignUp" component={SignUp} options={{title: ''}} />
+			</Stack.Navigator>
+		</NavigationContainer>
+	);
 }
 
-const styles = StyleSheet.create({
-	container: {
-		backgroundColor: '#c31c4a',
-		flex: 1,
-		alignItems: 'center',
-		justifyContent: 'center'
-	},
-});
+export default App

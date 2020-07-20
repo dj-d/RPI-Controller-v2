@@ -3,7 +3,7 @@ import {StyleSheet, Text, View, TextInput, TouchableOpacity} from 'react-native'
 
 import formStyles from '../styles/formStyles'
 
-export default class FormSignUp extends Component {
+class FormConfiguration extends Component{
 	render() {
 		return (
 			<View style={styles.container}>
@@ -20,13 +20,15 @@ export default class FormSignUp extends Component {
 					placeholder="Other path"
 				/>
 
-				<TouchableOpacity style={styles.button}>
+				<TouchableOpacity style={styles.button} onPress={() => this.props.nav.navigate("SplashScreen")}>
 					<Text style={styles.buttonText}>Save</Text>
 				</TouchableOpacity>
 			</View>
 		);
 	}
 }
+
+export default FormConfiguration
 
 const styles = StyleSheet.create({
 	...formStyles

@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import {useNavigation} from '@react-navigation/native'
 
 import Logo from '../components/Logo'
 import FormLogin from '../components/FormLogin'
 
-export default class Login extends Component {
+class Login extends Component {
 	render() {
 		return (
 			<View style={styles.container}>
@@ -14,11 +15,23 @@ export default class Login extends Component {
 
 				<View style={styles.signUpContainer}>
 					<Text style={styles.signUpText}>Don't have an account yet?</Text>
-					<Text style={styles.signUpButton}> Sign up</Text>
+
+					<TouchableOpacity onPress={() => this.props.nav.navigate("SignUp")}>
+						<Text style={styles.signUpButton}> Sign up</Text>
+					</TouchableOpacity>
 				</View>
 			</View>
 		);
 	}
+}
+
+export default function (props) {
+	const navigation = useNavigation()
+
+	return (
+		<Login {...props} nav={navigation} />
+	)
+
 }
 
 const styles = StyleSheet.create({

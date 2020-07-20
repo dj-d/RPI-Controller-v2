@@ -1,23 +1,24 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
+import {useNavigation} from '@react-navigation/native'
 
 import Logo from '../components/Logo'
-import FormInitialConfig from "../components/FormInitialConfig";
+import FormInitialConfig from "../components/FormConfiguration";
 
-export default class Configuration extends Component {
-	render() {
-		return (
-			<View style={styles.container}>
-				<Logo/>
+export default function Configuration(props) {
+	const navigation = useNavigation()
 
-				<FormInitialConfig />
+	return (
+		<View style={styles.container}>
+			<Logo/>
 
-				<View style={styles.textContainer}>
-					<Text style={styles.textText}>Welcome to DJD-Framework</Text>
-				</View>
+			<FormInitialConfig {...props} nav={navigation}/>
+
+			<View style={styles.textContainer}>
+				<Text style={styles.textText}>Welcome to DJD-Framework</Text>
 			</View>
-		);
-	}
+		</View>
+	);
 }
 
 const styles = StyleSheet.create({

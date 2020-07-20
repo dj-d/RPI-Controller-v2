@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import {useNavigation} from '@react-navigation/native'
 
 import Logo from '../components/Logo'
 import FormSignUp from '../components/FormSignUp'
 
-export default class SignUp extends Component {
+class SignUp extends Component {
 	render() {
 		return (
 			<View style={styles.container}>
@@ -12,13 +13,24 @@ export default class SignUp extends Component {
 
 				<FormSignUp/>
 
-				<View style={styles.signupContainer}>
-					<Text style={styles.signupText}>Already have an account?</Text>
-					<Text style={styles.signupButton}> Sign in</Text>
+				<View style={styles.signUpContainer}>
+					<Text style={styles.signUpText}>Already have an account?</Text>
+
+					<TouchableOpacity onPress={() => this.props.nav.navigate("Login")}>
+						<Text style={styles.signUpButton}> Sign in</Text>
+					</TouchableOpacity>
 				</View>
 			</View>
 		);
 	}
+}
+
+export default function (props) {
+	const navigation = useNavigation()
+
+	return (
+		<SignUp {...props} nav={navigation}/>
+	)
 }
 
 const styles = StyleSheet.create({
@@ -29,7 +41,7 @@ const styles = StyleSheet.create({
 		justifyContent: 'center'
 	},
 
-	signupContainer: {
+	signUpContainer: {
 		flexGrow: 1,
 		alignItems: 'flex-end',
 		justifyContent: 'center',
@@ -37,12 +49,12 @@ const styles = StyleSheet.create({
 		flexDirection: 'row'
 	},
 
-	signupText: {
+	signUpText: {
 		color: 'rgba(255, 255, 255, 0.7)',
 		fontSize: 16
 	},
 
-	signupButton: {
+	signUpButton: {
 		color: "#6abf4b",
 		fontSize: 16,
 		fontWeight: '500'
