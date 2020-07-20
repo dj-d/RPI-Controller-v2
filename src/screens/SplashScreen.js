@@ -1,22 +1,20 @@
-import React, {Component} from 'react';
-import {ActivityIndicator, StyleSheet, View} from 'react-native';
-import {useNavigation} from '@react-navigation/native'
+import React, { Component } from 'react';
+import { ActivityIndicator, StyleSheet, View } from 'react-native';
+import { useNavigation } from '@react-navigation/native'
 
 import Logo from '../components/Logo'
 import Api from "../api/routes";
 
-
 class SplashScreen extends Component {
 	async componentDidMount() {
-		let i = 0
+		// TODO: To improve when the host is not correct
+		let connTest = await Api.connectionTest()
 
-		while (await Api.connectionTest() === false || i < 10) {
-			setTimeout(() => {
-				i++
-			}, 2000)
+		if (connTest === true) {
+			this.props.nav.navigate("Login")
+		} else {
+			this.props.nav.navigation("Configuration")
 		}
-
-		this.props.nav.navigate("Login")
 	}
 
 	render() {

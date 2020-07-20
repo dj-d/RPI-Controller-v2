@@ -1,3 +1,5 @@
+import colors from "../constants/colors";
+
 export default {
 	container: {
 		flexGrow: 1,
@@ -21,7 +23,7 @@ export default {
 	button: {
 		width: 300,
 		height: 40,
-		backgroundColor: 'rgba(106, 191, 75, 0.9)',
+		backgroundColor: colors.primary.green,
 		borderRadius: 25,
 		marginVertical: 5
 	},
