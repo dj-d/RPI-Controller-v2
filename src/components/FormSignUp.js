@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {StyleSheet, Text, View, TextInput, TouchableOpacity} from 'react-native';
+import React, { Component } from 'react';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 
 import formStyles from "../styles/formStyles";
 

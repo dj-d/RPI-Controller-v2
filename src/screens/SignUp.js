@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
-import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
-import {useNavigation} from '@react-navigation/native'
+import React, { Component } from 'react';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native'
 
 import loginSignUpStyles from "../styles/loginSignUpStyles";
 
