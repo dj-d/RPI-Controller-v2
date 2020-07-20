@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import {useNavigation} from '@react-navigation/native'
 
+import color from '../constants/colors'
+
 import Logo from '../components/Logo'
 import FormLogin from '../components/FormLogin'
 
@@ -36,7 +38,7 @@ export default function (props) {
 
 const styles = StyleSheet.create({
 	container: {
-		backgroundColor: '#c31c4a',
+		backgroundColor: color.primary.pink,
 		flex: 1,
 		alignItems: 'center',
 		justifyContent: 'center'
@@ -51,12 +53,12 @@ const styles = StyleSheet.create({
 	},
 
 	signUpText: {
-		color: 'rgba(255, 255, 255, 0.7)',
+		color: color.secondary.text,
 		fontSize: 16
 	},
 
 	signUpButton: {
-		color: "#6abf4b",
+		color: color.primary.green,
 		fontSize: 16,
 		fontWeight: '500'
 	}

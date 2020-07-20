@@ -2,6 +2,8 @@ import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {useNavigation} from '@react-navigation/native'
 
+import color from '../constants/colors'
+
 import Logo from '../components/Logo'
 import FormInitialConfig from "../components/FormConfiguration";
 
@@ -23,7 +25,7 @@ export default function Configuration(props) {
 
 const styles = StyleSheet.create({
 	container: {
-		backgroundColor: '#c31c4a',
+		backgroundColor: color.primary.pink,
 		flex: 1,
 		alignItems: 'center',
 		justifyContent: 'center'
@@ -38,7 +40,7 @@ const styles = StyleSheet.create({
 	},
 
 	textText: {
-		color: 'rgba(255, 255, 255, 0.7)',
+		color: color.secondary.text,
 		fontSize: 16
 	}
 });

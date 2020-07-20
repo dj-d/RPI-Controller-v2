@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View, Image, Dimensions} from 'react-native';
 
+import color from '../constants/colors'
+
 const screen = Dimensions.get("screen");
 // const window = Dimensions.get("window");
 
@@ -34,6 +36,6 @@ const styles = StyleSheet.create({
 	text: {
 		marginVertical: 15,
 		fontSize: 18,
-		color: 'rgba(255, 255, 255, 0.7)'
+		color: color.primary.text
 	}
 })
