@@ -6,6 +6,7 @@ export default {
 	},
 
 	secondary: {
-		text: 'rgba(242, 242, 242, 0.8)'
+		text: 'rgba(242, 242, 242, 0.8)',
+		box: 'rgba(255, 255, 255, 0.3)'
 	}
 }
