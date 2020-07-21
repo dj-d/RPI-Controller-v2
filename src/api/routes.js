@@ -1,4 +1,4 @@
-import { AsyncStorage } from 'react-native'
+import {AsyncStorage} from 'react-native'
 
 /**
  *
@@ -23,6 +23,8 @@ async function connectionTest() {
 	return await fetch(await getHost() + '/', {method: 'GET'})
 		.then((response) => response.json())
 		.then((json) => {
+			console.log('OK')
+
 			return json.valid
 		})
 		.catch((error) => {
@@ -39,13 +41,34 @@ async function connectionTest() {
  * @returns {Promise<any>}
  */
 async function signUp(data) {
-	return (await fetch(await getHost() + '/signup', {
+	let res = {
+		valid: false,
+		info: ''
+	}
+
+	return await fetch(await getHost() + '/signup', {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json'
 		},
 		body: JSON.stringify(data)
-	})).json()
+	})
+		.then(response => response.json())
+		.then((json) => {
+			if (json.valid) {
+				res.valid = json.valid
+				res.info = json.info.api_key
+			}
+
+			return res
+		})
+		.catch((error) => {
+			console.error(error)
+
+			res.info = error
+
+			return res
+		})
 }
 
 /**
@@ -115,5 +138,6 @@ async function device(data) {
  * Export functions
  */
 export default {
-	connectionTest
+	connectionTest,
+	signUp
 }
