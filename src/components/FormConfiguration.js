@@ -34,7 +34,7 @@ class FormConfiguration extends Component{
 
 					this.props.nav.navigate("SplashScreen")
 				}}>
-					<Text style={styles.buttonText}>Save</Text>
+					<Text style={styles.buttonText}>Next</Text>
 				</TouchableOpacity>
 			</View>
 		);
