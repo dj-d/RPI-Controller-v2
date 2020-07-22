@@ -24,6 +24,7 @@ export default class FormSignUp extends Component {
 		if (res.valid) {
 			await AsyncStorage.setItem('apiKey', res.info)
 
+			// TODO: Change destination from login to main page
 			this.props.nav.navigate('Login')
 		} else {
 			console.log("signup error")
