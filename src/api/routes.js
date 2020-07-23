@@ -77,14 +77,35 @@ async function signUp(data) {
  * @param data
  * @returns {Promise<any>}
  */
-async function otpRequest(data) {
-	return (await fetch(await getHost() + '/otp_request', {
+async function login(data) {
+	let res = {
+		valid: false,
+		info: ''
+	}
+
+	return await fetch(await getHost() + '/login', {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json'
 		},
 		body: JSON.stringify(data)
-	})).json()
+	})
+		.then(response => response.json())
+		.then((json) => {
+			if (json.valid) {
+				res.valid = json.valid
+				res.info = json.info
+			}
+
+			return res
+		})
+		.catch((error) => {
+			console.error(error)
+
+			res.info = error
+
+			return res
+		})
 }
 
 /**
@@ -93,14 +114,35 @@ async function otpRequest(data) {
  * @param data
  * @returns {Promise<any>}
  */
-async function login(data) {
-	return await fetch(await getHost() + '/login', {
+async function otpRequest(data) {
+	let res = {
+		valid: false,
+		info: ''
+	}
+
+	return await fetch(await getHost() + '/otp_request', {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json'
 		},
 		body: JSON.stringify(data)
-	}).json()
+	})
+		.then(response => response.json())
+		.then((json) => {
+			if (json.valid) {
+				res.valid = json.valid
+				res.info = json.info
+			}
+
+			return res
+		})
+		.catch((error) => {
+			console.error(error)
+
+			res.info = error
+
+			return res
+		})
 }
 
 /**
@@ -139,5 +181,7 @@ async function device(data) {
  */
 export default {
 	connectionTest,
-	signUp
+	signUp,
+	login,
+	otpRequest
 }

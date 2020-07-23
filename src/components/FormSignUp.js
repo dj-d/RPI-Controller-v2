@@ -25,9 +25,11 @@ export default class FormSignUp extends Component {
 			await AsyncStorage.setItem('apiKey', res.info)
 
 			// TODO: Change destination from login to main page
+			// TODO: Add successful operation
+
 			this.props.nav.navigate('Login')
 		} else {
-			console.log("signup error")
+			console.error("signup error")
 
 			// TODO: Make error popup
 		}
