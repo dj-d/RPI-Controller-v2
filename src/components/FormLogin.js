@@ -7,6 +7,8 @@ import ApiKey from '../apiKeyGenerator'
 import formStyles from "../styles/formStyles";
 import color from "../constants/colors";
 
+// TODO: Add the possibility to close the modal with the back button
+
 export default class FormLogin extends Component {
 	localData = {
 		email: '',
@@ -79,8 +81,6 @@ export default class FormLogin extends Component {
 					<View style={styles.modalSubContainer}>
 						<Text>
 							The token for access has been sent to {this.localData.email}
-
-							Insert the token
 						</Text>
 						<TextInput
 							keyboardType='numeric'
