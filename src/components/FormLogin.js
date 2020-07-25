@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, TextInput, TouchableOpacity, Modal} from 'react-native';
+import {StyleSheet, Text, View, TextInput, TouchableOpacity, AsyncStorage} from 'react-native';
 
 import TokenPopup from "./TokenPopup";
 
@@ -41,6 +41,8 @@ export default class FormLogin extends Component {
 			let res = await Api.otpRequest(this.dataToSend)
 
 			if (res.valid) {
+				await AsyncStorage.setItem('apiKey', res.info)
+
 				this.setModalVisible(true)
 			} else {
 				// TODO: Add error popup
