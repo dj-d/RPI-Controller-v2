@@ -24,6 +24,8 @@ class TokenPopup extends Component {
 		let res = await Api.login(this.dataToSend)
 
 		if (res.valid) {
+			// TODO: Change destination
+
 			this.props.nav.navigate("SplashScreen")
 		} else {
 			// TODO: Add error popup
