@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View, TextInput, TouchableOpacity, Modal} from 'react-native';
 
+import TokenPopup from "./TokenPopup";
+
 import Api from '../api/routes'
 import ApiKey from '../apiKeyGenerator'
 
@@ -43,7 +45,7 @@ export default class FormLogin extends Component {
 			} else {
 				// TODO: Add error popup
 
-				console.error("Login error: ", res.info)
+				console.error("Login error 1: ", res.info)
 			}
 		} else {
 			// TODO: Add error popup
@@ -52,47 +54,17 @@ export default class FormLogin extends Component {
 		}
 	}
 
-	login = async () => {
-		// TODO: Add Splash screen between
-
-		this.setModalVisible(!this.state.modalVisible)
-
-		let res = await Api.login(this.dataToSend)
-
-		if (res.valid) {
-			this.props.nav.navigate("SplashScreen")
-		} else {
-			// TODO: Add error popup
-
-			console.error("Login error: ", res.info)
-		}
-	}
-
 	render() {
 		const {modalVisible} = this.state
 
 		return (
 			<View style={styles.container}>
-				<Modal
-					animation='slide'
-					transparent={true}
-					visible={modalVisible}
-				>
-					<View style={styles.modalSubContainer}>
-						<Text>
-							The token for access has been sent to {this.localData.email}
-						</Text>
-						<TextInput
-							keyboardType='numeric'
-							style={styles.textInput}
-							onChangeText={(otp) => this.dataToSend.otp = otp}
-						/>
-
-						<TouchableOpacity style={styles.button} onPress={() => this.login()}>
-							<Text>Send</Text>
-						</TouchableOpacity>
-					</View>
-				</Modal>
+				{
+					modalVisible === true ?
+						<TokenPopup data={this.dataToSend} state={this.state} nav={this.props.nav}/>
+						:
+						null
+				}
 
 				<TextInput
 					style={styles.textInput}
